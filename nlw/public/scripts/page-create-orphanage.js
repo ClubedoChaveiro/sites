@@ -7,8 +7,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",).addTo(map);
 const icon = L.icon({
     iconUrl: "./public/images/map-marker.svg",
     iconSize: [58, 68],
-    iconAnchor: [29, 68],
-    popupAnchor: [170,2]
+    iconAnchor: [29, 68]
 })
 
 let marker;
@@ -20,10 +19,10 @@ map.on('click', (event) => {
 
     document.querySelector('[name=lat]').value = lat;
     document.querySelector('[name=lng]').value = lng;
-    // Remover icon
+    // remove icon
     marker && map.removeLayer(marker)
 
-    // Add icon tileLayer
+    // add icon tileLayer
     marker = L.marker([lat, lng], {icon})
     .addTo(map)
 })
@@ -81,7 +80,6 @@ function toggleSelect() {
     // atualizar o meu input hidden com o valor selecionado
     const input = document.querySelector('[name="open_on_weekends"]')
     
-    // verificar se sim ou não
-
+    input.value = button.dataset.value
 
 }
